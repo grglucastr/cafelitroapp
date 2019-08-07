@@ -15,29 +15,27 @@ const UserInformation = () => {
       <View style={{flex: 1}}>
         <View style={{flexDirection: 'row', justifyContent: 'space-evenly', flex: 1}}>
           <View style={{width: '30%'}}>
-            <Text style={[styles.regularText, styles.titleText]}>Employee No.</Text>
+            <Text style={[styles.regularText, styles.titleText]}>Matrícula.</Text>
             <Text style={styles.regularText}>11179629</Text>
           </View>
 
           <View style={{width: '60%'}}>
-            <Text style={[styles.regularText, styles.titleText]}>Name</Text>
+            <Text style={[styles.regularText, styles.titleText]}>Nome</Text>
             <Text style={styles.regularText}>George Lucas Bentes Nunes</Text>
           </View>
         </View>
         
         <View style={{flexDirection: 'row', justifyContent: 'space-evenly', flex: 1}}>
           <View style={{width: '30%'}}>
-            <Text style={[styles.regularText, styles.titleText]}>Department</Text>
+            <Text style={[styles.regularText, styles.titleText]}>Departamento</Text>
             <Text style={styles.regularText}>System Dev</Text>
           </View>
 
           <View style={{width: '60%'}}>
-            <Text style={[styles.regularText, styles.titleText]}>Cost Center</Text>
+            <Text style={[styles.regularText, styles.titleText]}>Centro Custo</Text>
             <Text style={styles.regularText}>R&D Sys. Dev. (C824545)</Text>
           </View>
         </View>
-
-
       </View>
     </View>
 
@@ -52,6 +50,6 @@ const styles = StyleSheet.create({
   titleText:{
     fontWeight: 'bold',
   },
-})
+});
 
 export default UserInformation;
