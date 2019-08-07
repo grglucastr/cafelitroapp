@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
+import { getStyle  } from '../../util';
+
 
 const UserInformation = () => {
+
+  const [styles, setStyles] = useState(getStyle(portraitStyles, landscapeStyles));
+
+  const onLayout = () => {
+    setStyles(getStyle(portraitStyles, landscapeStyles));
+  }
+
   return(
-    <View style={{backgroundColor: '#645b3a', flexDirection: 'row'}}>
+    <View style={{backgroundColor: '#645b3a', flexDirection: 'row'}} onLayout={onLayout}>
       <View>
         <Image 
           style={{width: 100, height:100}}
@@ -42,9 +51,19 @@ const UserInformation = () => {
   )
 }
 
-const styles = StyleSheet.create({
+const portraitStyles = StyleSheet.create({
   regularText: {
-    color: '#fff3c9',
+    color: 'blue',
+  },
+
+  titleText:{
+    fontWeight: 'bold',
+  },
+});
+
+const landscapeStyles = StyleSheet.create({
+  regularText: {
+    color: 'yellow',
   },
 
   titleText:{
