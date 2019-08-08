@@ -1,52 +1,28 @@
-import React, { useState } from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
-import { getStyle  } from '../../util';
-
-import styles from './UserInformation.scss';
+import React from 'react';
+import {View, Text, Image} from 'react-native';
+import styles from './styles.scss';
 
 const UserInformation = () => {
 
-
-  return(
-    <View style={styles.container}>
-
+  return(     
+    <View style={styles.user}>
       {/* User picture thumbnail */}
-      <View>
+      <View style={styles.user__avatar}>
         <Image 
-          style={{width: 100, height:100}}
+          style={styles.user__avatar_img}
           source={{uri: 'https://media.licdn.com/dms/image/C5603AQG9GNc4roKzdw/profile-displayphoto-shrink_100_100/0?e=1570665600&v=beta&t=uYUUO2RZeyN05IoDnvPt2B5Fk36PdMJwG4pl5KXTmaI'}}
           resizeMode='contain'        
         />
       </View>
 
       {/* User basic information */}
-      <View>
-        <View>
-          <View>
-            <Text>Matrícula.</Text>
-            <Text>11179629</Text>
-          </View>
-
-          <View>
-            <Text>Nome</Text>
-            <Text>George Lucas Bentes Nunes</Text>
-          </View>
-        </View>
-        
-        <View>
-          <View>
-            <Text>Departamento</Text>
-            <Text>System Dev</Text>
-          </View>
-
-          <View>
-            <Text>Centro Custo</Text>
-            <Text>R&D Sys. Dev. (C824545)</Text>
-          </View>
-        </View>
+      <View style={styles.user__info}>
+        <Text style={styles.user__info_text}>11179629</Text>
+        <Text style={styles.user__info_text}>George Lucas Bentes Nunes</Text>
+        <Text style={styles.user__info_text}>R&D Sys. Dev. (C824545)</Text>
+        <Text style={styles.user__info_text}>System Dev</Text>
       </View>
     </View>
-
   )
 }
 
