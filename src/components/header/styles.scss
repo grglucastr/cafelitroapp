@@ -1,0 +1,30 @@
+$color-background: #6c3b1b;
+$color-containers: #645b3a;
+$color-foreground: #fff3c9;
+$color-white-flat:#ecf0f1;
+
+.logo{
+
+  flex-direction: row;
+  justify-content: space-between;
+
+  &__app{
+    flex-direction: row;
+    
+
+    &_img{
+      width: 50;
+      height: 50;
+    }
+
+    &_text{
+      color: $color-foreground;
+    }
+  }
+
+  &__samsung{
+    width: 100;
+    height: 40;
+  }
+  
+}
