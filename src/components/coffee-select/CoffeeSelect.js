@@ -6,29 +6,13 @@ import CoffeeList from '../coffee-list';
 
 const CoffeeSelect = () => {
   return(
-    <View>
+    <View style={{flex: 1}}>
       <UserInformation />
-      <Text style={[styles.regularText, styles.titleText, styles.header1]}>Qual tipo você vai querer? </Text>
+      <Text>Qual desses você deseja solicitar? </Text>
       <CoffeeList />
-
     </View>
   )
 };
 
-const styles = StyleSheet.create({
-  regularText: {
-    color: '#fff3c9',
-  },
-
-  header1: {
-    fontSize: 30,
-    marginTop:20,
-    marginBottom:20,
-  },
-
-  titleText:{
-    fontWeight: 'bold',
-  },
-})
 
 export default CoffeeSelect;

@@ -12,7 +12,7 @@ const App = () => (
   <ApplicationProvider 
     mapping={mapping}
     theme={lightTheme}>   
-    <Layout style={{flex: 1, backgroundColor: '#6c3b1b'}}>
+    <Layout style={{flex: 1}}>
       <CoffeeSelect />
     </Layout>
   </ApplicationProvider>
