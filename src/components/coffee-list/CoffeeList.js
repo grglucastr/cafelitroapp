@@ -1,7 +1,7 @@
 import React from 'react';
-import {SafeAreaView, View, Text, FlatList, StyleSheet } from 'react-native';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
 
-import CoffeeItem from '../coffee-item';
+import { Button } from 'react-native-ui-kitten';
 
 const createRows = (data, columns) => {
   const rows = Math.floor(data.length / columns); // [A]  
@@ -31,43 +31,36 @@ const CoffeeList  = () => {
   ];
 
   const data = createRows(coffees, 2);
+  const numColumns = 2;
 
   return(
     <View style={{flex:1}}>
+
       <FlatList
         data={data}
-        numColumns={2}
-        keyExtractor={(item) => item.id}
-        style={styles.container}
-        renderItem={({item}) => {
-          if(item.empty){
-            return <View style={[styles.items, styles.empty]}></View>
-          }
-          return(
-          <View style={styles.items}>
-            <CoffeeItem title={item.title} />
-          </View>);
-        }}
+        keyExtractor={item => item.id}
+        numColumns={numColumns}
+        renderItem={({item}) => (
+          item.empty ? 
+          (<View style={styles.items}></View>) : 
+          (
+            <View style={styles.items}>
+              <Button>{item.title}</Button>
+            </View>
+          )
+        )}
       />
+      
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   items:{
-    padding: 10,
-    margin: 5,
     flex:1,
-    
-    borderRadius: 10,
-    height: 170,
-    
+    margin:4,
   },
-  empty:{
-    borderWidth:0,
-    backgroundColor: 'transparent'
-  }
-});
 
+})
 
 export default CoffeeList;
