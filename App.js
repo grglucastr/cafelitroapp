@@ -1,21 +1,15 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
-import { mapping, light as lightTheme } from '@eva-design/eva';
-import { ApplicationProvider, Layout } from 'react-native-ui-kitten';
-
-import UserIdentification from './src/components/user-identification';
+import { 
+  createStackNavigator, 
+  createAppContainer 
+} from 'react-navigation';
+import Home from './src/components/home';
 import CoffeeSelect from './src/components/coffee-select';
+import UserIdentification from './src/components/user-identification';
 
+const App = createStackNavigator({
+  Home: UserIdentification,
+  CoffeeSelect: CoffeeSelect
+})
 
-
-const App = () => (
-  <ApplicationProvider 
-    mapping={mapping}
-    theme={lightTheme}>   
-    <Layout style={{flex: 1}}>
-      <CoffeeSelect />
-    </Layout>
-  </ApplicationProvider>
-)
-
-export default App;
+export default createAppContainer(App);
