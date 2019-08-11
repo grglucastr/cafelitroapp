@@ -15,9 +15,25 @@ const UserIdentification = ({navigation}) => {
   const [userNo, setUserNo] = useState("");
   const window = Dimensions.get('window');  
 
+
+  const handleBadgeNumber = text =>{    
+    setUserNo(text);
+    if(text.length === 10){
+      console.log('userNo', text);
+      console.log('userNo', '3539075628');
+      
+      if(text === '3539075628'){
+        navigation.navigate('CoffeeSelect');
+      }else{
+        console.log('this is bad badge');
+        
+      }
+    }
+  }
+
   return(
     <LayoutWrapper>
-      <KeyboardAvoidingView style={{flex:1, justifyContent:'space-around'}}>
+      <KeyboardAvoidingView style={{flex:1, justifyContent:'space-around', backgroundColor:'#6c3b1b'}}>
         <View style={{justifyContent: "center", alignItems:'center'}}> 
           <Image
             style={{width: window.width, height: 30}}
@@ -44,7 +60,13 @@ const UserIdentification = ({navigation}) => {
             style={{alignSelf: 'center', height: 130}}
           />     
 
-          <TextInput autoFocus={true} onFocus={Keyboard.dismiss} />
+          <TextInput
+            autoFocus={true} 
+            onFocus={Keyboard.dismiss}
+            onChangeText={(text) => handleBadgeNumber(text)}            
+            style={{backgroundColor: 'transparent', color:'transparent'}}
+          />
+          
           <Text style={{textAlign: 'center', color: '#fff3c9', fontSize: 20}}>
             Aproxime o crachá do leitor...
           </Text>
@@ -56,12 +78,14 @@ const UserIdentification = ({navigation}) => {
               style={{flex: 2, borderRadius:0}}
               placeholder="Ou digite sua matrícula aqui!"
             />
+          
             <Button 
               status="white" 
               style={{borderRadius:0, height: 64.8}}
               onPress={() => navigation.navigate('CoffeeSelect')}>
                 Prosseguir
             </Button>
+            
           </View>
         </View>
       </KeyboardAvoidingView>

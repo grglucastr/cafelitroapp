@@ -3,7 +3,6 @@ import {
   createStackNavigator, 
   createAppContainer 
 } from 'react-navigation';
-import Home from './src/components/home';
 import CoffeeSelect from './src/components/coffee-select';
 import UserIdentification from './src/components/user-identification';
 
