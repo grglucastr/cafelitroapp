@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { withNavigation } from 'react-navigation';
 
 import { Button } from 'react-native-ui-kitten';
 
-const createRows = (data, columns) => {
+const createRows = (data, columns ) => {
   const rows = Math.floor(data.length / columns); // [A]  
   let lastRowElements = data.length - rows * columns; // [B]   
 
@@ -18,7 +19,7 @@ const createRows = (data, columns) => {
   return data; // [F]
 }
 
-const CoffeeList  = () => {
+const CoffeeList  = ({navigation}) => {
 
   const coffees = [
     {id: "1", title: 'Cafe Preto'},
@@ -45,7 +46,9 @@ const CoffeeList  = () => {
           (<View style={styles.items}></View>) : 
           (
             <View style={styles.items}>
-              <Button>{item.title}</Button>
+              <Button  onPress={() => navigation.navigate('LitersSelect')}>
+                {item.title}
+              </Button>
             </View>
           )
         )}
@@ -63,4 +66,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default CoffeeList;
+export default withNavigation(CoffeeList);

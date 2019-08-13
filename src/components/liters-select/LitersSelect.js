@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text } from "react-native";
 
+
+
 const LitersSelect = () => (
-    <View>
-        <Text>Select Litters</Text>
-    </View>
+    <View></View>
 )
 
 export default LitersSelect;
