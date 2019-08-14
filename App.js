@@ -8,7 +8,7 @@ import UserIdentification from './src/components/user-identification';
 import LitersSelect from './src/components/liters-select';
 
 const App = createStackNavigator({
-  Home: UserIdentification,
+  Home: LitersSelect,
   CoffeeSelect,
   LitersSelect,
 })
