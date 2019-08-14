@@ -1,2 +1,2 @@
-import LitersSelect  from './LitersSelect';
+import LitersSelect from './LitersSelect';
 export default LitersSelect;
