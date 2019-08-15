@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styles from './styles';
 
-const CoffeeEnd = () => {
+const CoffeeEnd = ({navigation}) => {
 
   const liters = 20;
   const beverageType = 'Café Preto';
@@ -30,7 +30,9 @@ const CoffeeEnd = () => {
         </Text>
       </View>
 
-      <TouchableOpacity style={styles.btn}>
+      <TouchableOpacity 
+        onPress={() => navigation.navigate('Home')}
+        style={styles.btn}>
         <Text>Concluir</Text>
       </TouchableOpacity>
 
