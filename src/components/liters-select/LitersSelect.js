@@ -3,7 +3,7 @@ import { View, Text, Dimensions, TouchableOpacity } from 'react-native';
 import Slider from '@react-native-community/slider';
 import styles from './styles.scss';
 
-const LitersSelect = () => {
+const LitersSelect = ({navigation}) => {
 
     const [liter, setLiter] = useState(1);
 
@@ -11,22 +11,27 @@ const LitersSelect = () => {
     const width = window.width;
 
     return (
-        <View style={styles.liter}>
-            <Text style={styles.liter__title}>Quantos litros deseja solicitar?</Text>
-            <Text style={styles.liter__value}> { liter }L </Text>
-            <Slider
-                style={[styles.liter__slider, {width: (width-5), height: 50}]}
-                minimumValue={1}
-                maximumValue={30}
-                step={1}
-                minimumTrackTintColor="#ccc"
-                maximumTrackTintColor="#000000"
-                onValueChange={(val) => setLiter(val)}
-                value={liter}
-            />
+        <View style={{flex: 1, justifyContent: 'space-around'}}>
+            <Text style={[styles.header, styles.header_3]}>Quantos litros deseja solicitar?</Text>
+            
+            <View>
+                <Text style={[styles.header, styles.header_1]}> { liter }L </Text>
+                <Slider
+                    style={[styles.slider, {width: (width-70), height: 50}]}
+                    minimumValue={1}
+                    maximumValue={30}
+                    step={1}
+                    minimumTrackTintColor="#ccc"
+                    maximumTrackTintColor="#000000"
+                    onValueChange={(val) => setLiter(val)}
+                    value={liter}
+                />
+            </View>
 
-            <TouchableOpacity style={styles.liter__finish}>
-                <Text style={styles.finish__text}>
+            <TouchableOpacity 
+                onPress={() => navigation.navigate('CoffeeEnd')}
+                style={styles.btn}>
+                <Text>
                     Finalizar
                 </Text>
             </TouchableOpacity>

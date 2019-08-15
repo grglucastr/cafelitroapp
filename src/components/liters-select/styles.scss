@@ -1,37 +1,36 @@
-.liter{
+.header{
+  text-align: center;  
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   
-  &__title{
-    text-align: center;  
-    font-size: 1.5rem;
-    margin-top: 1rem;
-    margin-bottom: 5rem;
-  }
-
-  &__value{
-    text-align: center;
+  &_1{
     font-size: 5rem;
-    margin-bottom: 5rem;
   }
 
-  &__slider{
-    margin-bottom: 5rem;
+  &_2{
+    font-size: 3rem;
   }
 
-  &__finish{
-    border: 1px solid #000;
-    border-radius: 10px;
-    background-image: linear-gradient(green, darkgreen);
+  &_3{
+    font-size: 2rem;
+  }
+}
 
-    height: 3rem;
+.slider{
+  align-self: center;
+}
+
+.btn{
+  border: 1px solid #000;
+  border-radius: 10px;
+  background-image: linear-gradient(green, darkgreen);
+
+  height: 3rem;
     
-    align-items: center;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
 
-    align-self: center;
-    width: 70%;
-    
-    &__text{
-
-    }
-  }
+  align-self: center;
+  width: auto;
+  padding: 1px 5rem;
 }

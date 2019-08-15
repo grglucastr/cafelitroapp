@@ -10,7 +10,7 @@ import CoffeeEnd from './src/components/coffee-end';
 
 
 const App = createStackNavigator({
-  Home: UserIdentification,
+  Home: LitersSelect,
   CoffeeSelect,
   LitersSelect,
   CoffeeEnd
