@@ -15,8 +15,19 @@ const App = createStackNavigator({
       header:null,
     }
   },
-  CoffeeSelect,
-  LitersSelect,
+  CoffeeSelect: {
+    screen: CoffeeSelect,
+    navigationOptions:{
+      title: 'Tipo de Bebida',
+    },
+  },
+
+  LitersSelect: {
+    screen: LitersSelect,
+    navigationOptions: {
+      title: 'Litros'
+    }
+  },
 
   CoffeeEnd:{
     screen: CoffeeEnd,
