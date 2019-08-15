@@ -3,14 +3,14 @@ import {
   createAppContainer 
 } from 'react-navigation';
 
+import CoffeeStart from './src/components/coffee-start';
 import CoffeeSelect from './src/components/coffee-select';
-import UserIdentification from './src/components/user-identification';
 import LitersSelect from './src/components/liters-select';
 import CoffeeEnd from './src/components/coffee-end';
 
 const App = createStackNavigator({
   CoffeeStart: {
-    screen: UserIdentification,
+    screen: CoffeeStart,
     navigationOptions: {
       header:null,
     }

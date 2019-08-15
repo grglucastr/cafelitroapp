@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   View, 
   Text, 
@@ -10,7 +10,7 @@ import {
 import LayoutWrapper from '../../util/layout-wrapper';
 import { Input, Button } from 'react-native-ui-kitten';
 
-const UserIdentification = ({navigation}) => {
+const CoffeeStart = ({navigation}) => {
 
   const [userNo, setUserNo] = useState("");
   const window = Dimensions.get('window');  
@@ -99,4 +99,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default UserIdentification;
+export default CoffeeStart;
