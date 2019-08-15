@@ -31,7 +31,7 @@ const CoffeeEnd = ({navigation}) => {
       </View>
 
       <TouchableOpacity 
-        onPress={() => navigation.navigate('Home')}
+        onPress={() => navigation.navigate('CoffeeStart')}
         style={styles.btn}>
         <Text>Concluir</Text>
       </TouchableOpacity>
