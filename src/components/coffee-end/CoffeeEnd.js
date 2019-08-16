@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { AndroidBackHandler } from 'react-navigation-backhandler';
 import styles from './styles';
@@ -22,7 +22,7 @@ const CoffeeEnd = ({navigation}) => {
           />
         </View>
 
-        <View>          
+        <View>9          
           <Text style={[styles.header, styles.header_1]}>
             {liters}L
           </Text>
