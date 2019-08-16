@@ -3,17 +3,13 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { AndroidBackHandler } from 'react-navigation-backhandler';
 import styles from './styles';
 
-const onBackPressed = (navigation) => {
-  navigation.navigate('CoffeeStart');
-}
-
 const CoffeeEnd = ({navigation}) => {
 
   const liters = 20;
   const beverageType = 'Café Preto';
 
   return(
-    <AndroidBackHandler onBackPressed={()=>onBackPressed(navigation)}>
+    <AndroidBackHandler onBackPress={() => navigation.navigate('CoffeeStart')}>
       <View style={{flex:1, justifyContent: 'space-around'}}>
         <View>
           <Text style={[styles.header, styles.header_3]}>
@@ -26,8 +22,7 @@ const CoffeeEnd = ({navigation}) => {
           />
         </View>
 
-        <View>
-          
+        <View>          
           <Text style={[styles.header, styles.header_1]}>
             {liters}L
           </Text>
