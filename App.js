@@ -4,6 +4,7 @@ import {
 } from 'react-navigation';
 
 import CoffeeStart from './src/components/coffee-start';
+import UserValidation from './src/components/user-validation';
 import CoffeeSelect from './src/components/coffee-select';
 import LitersSelect from './src/components/liters-select';
 import CoffeeEnd from './src/components/coffee-end';
@@ -15,6 +16,10 @@ const App = createStackNavigator({
       header:null,
     }
   },
+
+  UserValidation,
+
+
   CoffeeSelect: {
     screen: CoffeeSelect,
     navigationOptions:{

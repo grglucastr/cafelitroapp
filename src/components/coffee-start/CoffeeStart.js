@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   View, 
   Text, 
   Image, 
   Dimensions, 
   KeyboardAvoidingView, 
-  StyleSheet, Keyboard, TextInput } from 'react-native';
+  Keyboard, 
+  TextInput,
+  ToastAndroid } from 'react-native';
 
 import LayoutWrapper from '../../util/layout-wrapper';
 import { Input, Button } from 'react-native-ui-kitten';
@@ -13,20 +15,16 @@ import { Input, Button } from 'react-native-ui-kitten';
 const CoffeeStart = ({navigation}) => {
 
   const [userNo, setUserNo] = useState("");
-  const window = Dimensions.get('window');  
-
+  const window = Dimensions.get('window');
+  const textInputUserNo = React.createRef();
 
   const handleBadgeNumber = text =>{    
     setUserNo(text);
     if(text.length === 10){
-      console.log('userNo', text);
-      console.log('userNo', '3539075628');
-      
       if(text === '3539075628'){
         navigation.navigate('CoffeeSelect');
       }else{
         console.log('this is bad badge');
-        
       }
     }
   }
@@ -73,6 +71,7 @@ const CoffeeStart = ({navigation}) => {
           <View style={{flexDirection: 'row'}} >
             <Input
               value={userNo}
+              ref={ textInputUserNo }
               onChangeText={(string) => setUserNo(string)}
               keyboardType="number-pad"            
               style={{flex: 2, borderRadius:0}}
@@ -82,7 +81,7 @@ const CoffeeStart = ({navigation}) => {
             <Button 
               status="white" 
               style={{borderRadius:0, height: 64.8}}
-              onPress={() => navigation.navigate('CoffeeSelect')}>
+              onPress={() => redirectByUserCustomCode(navigation, userNo, textInputUserNo)}>
                 Prosseguir
             </Button>
             
@@ -93,10 +92,15 @@ const CoffeeStart = ({navigation}) => {
   );
 }
 
-const styles = StyleSheet.create({
-  text: {
-    color: '#fff3c9',
-  },
-})
+const redirectByUserCustomCode = (navigation, userNo, input) => {
+
+  if(userNo === ""){
+    ToastAndroid.show("Preencha o campo corretamente", ToastAndroid.SHORT);
+    console.log('input', input);
+    input.current.focus();
+    return ;
+  }
+  navigation.navigate('UserValidation');
+}
 
 export default CoffeeStart;
