@@ -1,0 +1,32 @@
+.header{
+  text-align: center;  
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  
+  &_1{
+    font-size: 5rem;
+  }
+
+  &_2{
+    font-size: 3rem;
+  }
+
+  &_3{
+    font-size: 2rem;
+  }
+}
+
+.btn{
+  border: 1px solid #000;
+  border-radius: 10px;
+  background-image: linear-gradient(green, darkgreen);
+
+  height: 3rem;
+    
+  align-items: center;
+  justify-content: center;
+
+  align-self: center;
+  width: auto;
+  padding: 1px 5rem;
+}
