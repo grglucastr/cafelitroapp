@@ -9,7 +9,7 @@ const CoffeeEnd = ({navigation}) => {
   const beverageType = 'Café Preto';
 
   return(
-    <AndroidBackHandler onBackPress={() => navigation.navigate('CoffeeStart')}>
+    <AndroidBackHandler onBackPress={() => navigation.navigate('CoffeeStart') }>
       <View style={{flex:1, justifyContent: 'space-around'}}>
         <View>
           <Text style={[styles.header, styles.header_3]}>
@@ -22,7 +22,7 @@ const CoffeeEnd = ({navigation}) => {
           />
         </View>
 
-        <View>9          
+        <View>
           <Text style={[styles.header, styles.header_1]}>
             {liters}L
           </Text>
