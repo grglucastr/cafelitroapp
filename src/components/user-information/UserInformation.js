@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, Image} from 'react-native';
 import styles from './styles.scss';
 
-const UserInformation = () => {
+const UserInformation = ({user}) => {
 
   return(     
     <View style={styles.user}>
@@ -17,10 +17,10 @@ const UserInformation = () => {
 
       {/* User basic information */}
       <View style={styles.user__info}>
-        <Text style={styles.user__info_text}>11179629</Text>
-        <Text style={styles.user__info_text}>George Lucas Bentes Nunes</Text>
-        <Text style={styles.user__info_text}>R&D Sys. Dev. (C824545)</Text>
-        <Text style={styles.user__info_text}>System Dev</Text>
+        <Text style={styles.user__info_text}>{user.number}</Text>
+        <Text style={styles.user__info_text}>{user.name}</Text>
+        <Text style={styles.user__info_text}>{user.costCenter}</Text>
+        <Text style={styles.user__info_text}>{user.department}</Text>
       </View>
     </View>
   )

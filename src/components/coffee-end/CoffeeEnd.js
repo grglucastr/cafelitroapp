@@ -5,8 +5,10 @@ import styles from './styles';
 
 const CoffeeEnd = ({navigation}) => {
 
-  const liters = 20;
-  const beverageType = 'Café Preto';
+  const userParam = navigation.getParam('user');
+  const coffee = navigation.getParam('coffee');
+  const liters = navigation.getParam('liter');
+  const beverageType = coffee.title;
 
   return(
     <AndroidBackHandler onBackPress={() => navigation.navigate('CoffeeStart') }>
@@ -32,7 +34,7 @@ const CoffeeEnd = ({navigation}) => {
         </View>
 
         <TouchableOpacity 
-          onPress={() => navigation.navigate('CoffeeStart')}
+          onPress={() => navigation.navigate('CoffeeStart', {userParam})}
           style={styles.btn}>
           <Text>Concluir</Text>
         </TouchableOpacity>

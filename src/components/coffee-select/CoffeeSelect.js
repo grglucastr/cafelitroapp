@@ -1,18 +1,21 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text} from 'react-native';
 
 import UserInformation from '../user-information';
 import CoffeeList from '../coffee-list';
 
 import LayoutWrapper from '../../util/layout-wrapper';
 
-const CoffeeSelect = () => {
+const CoffeeSelect = ({ navigation }) => {
+
+  const user = navigation.getParam('user');
+
   return(
     <LayoutWrapper>
       <View style={{flex: 1}}>
-        <UserInformation />
+        <UserInformation user={user} />
         <Text>Qual desses você deseja solicitar? </Text>
-        <CoffeeList />
+        <CoffeeList user={user} />
       </View>
     </LayoutWrapper>
   )

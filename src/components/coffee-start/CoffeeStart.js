@@ -74,6 +74,8 @@ const CoffeeStart = ({navigation}) => {
               ref={ textInputUserNo }
               onChangeText={(string) => setUserNo(string)}
               keyboardType="number-pad"            
+              onSubmitEditing={() => redirectByUserCustomCode(navigation, userNo, textInputUserNo)}
+              maxLength={8}
               style={{flex: 2, borderRadius:0}}
               placeholder="Ou digite sua matrícula aqui!"
             />
@@ -81,7 +83,10 @@ const CoffeeStart = ({navigation}) => {
             <Button 
               status="white" 
               style={{borderRadius:0, height: 64.8}}
-              onPress={() => redirectByUserCustomCode(navigation, userNo, textInputUserNo)}>
+              onPress={() => {
+                const userNumber = userNo; 
+                setUserNo(""); 
+                return redirectByUserCustomCode(navigation, userNumber, textInputUserNo);}}>
                 Prosseguir
             </Button>
             
@@ -92,15 +97,16 @@ const CoffeeStart = ({navigation}) => {
   );
 }
 
-const redirectByUserCustomCode = (navigation, userNo, input) => {
+const redirectByUserCustomCode = (navigation, userNumber, input) => {
 
-  if(userNo === ""){
+  if(userNumber === ""){
     ToastAndroid.show("Preencha o campo corretamente", ToastAndroid.SHORT);
     console.log('input', input);
     input.current.focus();
     return ;
   }
-  navigation.navigate('UserValidation');
+  navigation.navigate('UserValidation', {userNo: userNumber});
+  
 }
 
 export default CoffeeStart;

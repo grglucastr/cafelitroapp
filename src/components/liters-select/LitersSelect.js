@@ -10,8 +10,13 @@ const LitersSelect = ({navigation}) => {
     const window = Dimensions.get('window');
     const width = window.width;
 
+    const user = navigation.getParam('user');
+    const coffee = navigation.getParam('item');
+
+
     return (
         <View style={{flex: 1, justifyContent: 'space-around'}}>
+            <Text>{user.name} -{coffee.title}</Text>
             <Text style={[styles.header, styles.header_3]}>Quantos litros deseja solicitar?</Text>
             
             <View>
@@ -29,7 +34,7 @@ const LitersSelect = ({navigation}) => {
             </View>
 
             <TouchableOpacity 
-                onPress={() => navigation.navigate('CoffeeEnd')}
+                onPress={() => navigation.navigate('CoffeeEnd', {user, coffee, liter})}
                 style={styles.btn}>
                 <Text>
                     Finalizar

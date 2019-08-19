@@ -4,23 +4,9 @@ import { withNavigation } from 'react-navigation';
 
 import { Button } from 'react-native-ui-kitten';
 
-const createRows = (data, columns ) => {
-  const rows = Math.floor(data.length / columns); // [A]  
-  let lastRowElements = data.length - rows * columns; // [B]   
-
-  while (lastRowElements !== columns) { // [C]
-    data.push({ // [D]
-      id: `empty-${lastRowElements}`,
-      name: `empty-${lastRowElements}`,
-      empty: true
-    });
-    lastRowElements += 1; // [E]
-  }
-  return data; // [F]
-}
-
 const CoffeeList  = ({navigation}) => {
 
+  const user = navigation.getParam('user');
   const coffees = [
     {id: "1", title: 'Cafe Preto'},
     {id: "2", title: 'Cafe com Leite'},
@@ -46,7 +32,7 @@ const CoffeeList  = ({navigation}) => {
           (<View style={styles.items}></View>) : 
           (
             <View style={styles.items}>
-              <Button  onPress={() => navigation.navigate('LitersSelect')}>
+              <Button  onPress={() => navigation.navigate('LitersSelect', {user, item})}>
                 {item.title}
               </Button>
             </View>
@@ -57,6 +43,25 @@ const CoffeeList  = ({navigation}) => {
     </View>
   )
 }
+
+// This is a helper function to keep grid buttons align
+// in its respective columns
+
+const createRows = (data, columns ) => {
+  const rows = Math.floor(data.length / columns); 
+  let lastRowElements = data.length - rows * columns;
+
+  while (lastRowElements !== columns) { 
+    data.push({ 
+      id: `empty-${lastRowElements}`,
+      name: `empty-${lastRowElements}`,
+      empty: true
+    });
+    lastRowElements += 1; 
+  }
+  return data;
+}
+
 
 const styles = StyleSheet.create({
   items:{
